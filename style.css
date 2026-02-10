@@ -1,8 +1,18 @@
+/* ============================================
+   STYLE.CSS - VERSION RESPONSIVE OPTIMISÉE
+   Portfolio Emma Ploton - Page d'accueil
+   ============================================ */
+
+/* =====================================
+   BASE STYLES (Desktop > 1024px)
+   ===================================== */
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 body {
   padding: 10px;
   background: linear-gradient(
@@ -24,7 +34,10 @@ body {
   100% { transform: translateY(0); }
 }
 
-/* Bandeau */
+/* =====================================
+   NAVIGATION
+   ===================================== */
+
 .nav-circl {
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +59,6 @@ body {
   gap: 3vw;
 }
 
-/* Structure de base */
 .nav-links {
   list-style: none;
   display: flex;
@@ -57,7 +69,7 @@ body {
 }
 
 .nav-links li {
-  position: relative; /* nécessaire pour le dropdown */
+  position: relative;
 }
 
 .nav-links a {
@@ -67,14 +79,13 @@ body {
   background-color: #195415;
   border-radius: 10px;
   font-size: 17px;
-
 }
 
 /* Menu déroulant caché */
 .dropdown-menu {
   z-index: 10;
   position: absolute;
-  top: 100%; /* juste en dessous du parent */
+  top: 100%;
   left: 0;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
@@ -82,11 +93,10 @@ body {
   padding: 10px 0;
   list-style: none;
   margin: 0;
-  display: none; /* caché par défaut */
+  display: none;
   min-width: 150px;
 }
 
-/* Style des liens du dropdown */
 .dropdown-menu li a {
   display: block;
   padding: 8px 15px;
@@ -102,21 +112,19 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-.formes1 {
-  margin-left: -200px;
-  margin-top: -200px;
-  z-index: 5;
-  animation: waveFloat 3s ease-in-out infinite;
-  position: absolute;
-}
+
+/* =====================================
+   TITRES & TEXTES
+   ===================================== */
+
 .bienvenue {
   text-align: center;
   color: white;
   font-weight: bold;
-  font-size: 70px;
+  font-size: clamp(40px, 8vw, 70px); /* Responsive */
   margin-top: 5rem;
   background: #ffffff;
--webkit-background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -124,12 +132,27 @@ body {
   text-align: center;
   color: white;
   font-weight: bold;
-  font-size: 50px;
+  font-size: clamp(28px, 5vw, 50px); /* Responsive */
   margin-top: 5rem;
   background: #ffffff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* =====================================
+   FORMES SVG DÉCORATIVES
+   ===================================== */
+
+.formes1 {
+  margin-left: -200px;
+  margin-top: -200px;
+  z-index: 5;
+  animation: waveFloat 3s ease-in-out infinite;
+  position: absolute;
+  width: 700px;
+  height: 700px;
+}
+
 .formes2 {
   right: 0;
   z-index: 5;
@@ -138,7 +161,10 @@ body {
   animation: waveFloat 3s ease-in-out infinite;
   rotate: 180deg;
   position: absolute;
+  width: 500px;
+  height: 500px;
 }
+
 .fleche-anim {
   width: 200px;
   display: block;
@@ -161,6 +187,10 @@ body {
   }
 }
 
+/* =====================================
+   SECTION PRÉSENTATION
+   ===================================== */
+
 .presentation {
   margin-top: 100px;
 }
@@ -169,6 +199,7 @@ body {
   display: flex;
   margin-left: 15%;
   width: 80rem;
+  max-width: 90%; /* Limite responsive */
   border-radius: 20px;
   overflow: hidden;
 }
@@ -190,10 +221,12 @@ body {
   color: white;
   font-family: "Inter", sans-serif;
 }
+
 .identité {
   font-size: 25px;
   line-height: 1.5;
 }
+
 .img {
   position: relative;
   z-index: 20;
@@ -201,10 +234,15 @@ body {
   margin: 3rem;
 }
 
+/* =====================================
+   SECTION CONTACT
+   ===================================== */
+
 .contact {
   color: white;
   margin: 6rem;
 }
+
 .cartes-profils {
   display: flex;
   justify-content: center;
@@ -212,30 +250,26 @@ body {
   flex-wrap: wrap;
   margin-top: 3rem;
 }
+
 .carte-profil {
   width: 18rem;
   margin: 2rem auto;
   padding: 2rem 1rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
   background: rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   box-shadow:
           0 8px 32px rgba(0, 0, 0, 0.25),
           inset 0 0 20px rgba(255, 255, 255, 0.05);
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover premium */
 .carte-profil:hover {
   transform: translateY(-8px);
   box-shadow:
@@ -243,7 +277,6 @@ body {
           inset 0 0 25px rgba(255, 255, 255, 0.08);
 }
 
-/* Logo */
 .carte-profil img {
   width: 80px;
   height: 80px;
@@ -252,12 +285,10 @@ body {
   transition: transform 0.2s ease;
 }
 
-/* Petit zoom du logo au hover */
 .carte-profil:hover img {
   transform: scale(1.05);
 }
 
-/* Nom du site */
 .nom-site {
   font-size: 1.4rem;
   font-weight: bold;
@@ -266,6 +297,10 @@ body {
   text-align: center;
   margin: 0;
 }
+
+/* =====================================
+   FOOTER
+   ===================================== */
 
 .footer {
   margin-top: 5rem;
@@ -286,19 +321,19 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* Liens */
 .footer-links {
   list-style: none;
   display: flex;
   margin: 0;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
   text-decoration: none;
   color: white;
   font-size: 1.1rem;
-  padding: 6px ;
+  padding: 6px;
   border-radius: 10px;
   transition: background 0.2s ease;
   background-color: #195415;
@@ -308,12 +343,568 @@ body {
   background: rgba(67, 9, 121, 0.5);
 }
 
-/* Nom à droite */
 .footer-right p {
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0;
 }
 
+/* ================================================
+   MEDIA QUERIES - TABLETTE (768px - 1024px)
+   ================================================ */
 
+@media screen and (max-width: 1024px) {
 
+  /* Navigation plus compacte */
+  .nav-circl {
+    padding: 0.5rem 1rem;
+    margin: 3vw auto;
+  }
+
+  .nav-links {
+    gap: 1.5vw;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  /* Formes SVG réduites */
+  .formes1 {
+    width: 500px;
+    height: 500px;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+
+  .formes2 {
+    width: 350px;
+    height: 350px;
+    margin-right: -80px;
+  }
+
+  /* Carte centrée */
+  .carte {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: auto;
+    max-width: 90%;
+  }
+
+  .carte img {
+    height: 350px;
+    margin-right: 2rem;
+  }
+
+  .identité {
+    font-size: 22px;
+  }
+
+  /* Contact */
+  .contact {
+    margin: 4rem 2rem;
+  }
+
+  .carte-profil {
+    width: 16rem;
+  }
+}
+
+/* ================================================
+   MEDIA QUERIES - MOBILE PAYSAGE (481px - 768px)
+   ================================================ */
+
+@media screen and (max-width: 768px) {
+
+  body {
+    padding: 5px;
+  }
+
+  /* Navigation responsive */
+  .nav-circl {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-right h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  /* Textes adaptés */
+  .bienvenue {
+    font-size: clamp(35px, 10vw, 50px);
+    margin-top: 3rem;
+  }
+
+  .phrase {
+    font-size: clamp(22px, 6vw, 35px);
+    margin-top: 3rem;
+  }
+
+  /* Formes SVG masquées ou réduites */
+  .formes1 {
+    width: 300px;
+    height: 300px;
+    margin-left: -100px;
+    margin-top: -100px;
+    opacity: 0.5; /* Plus discret */
+  }
+
+  .formes2 {
+    width: 250px;
+    height: 250px;
+    margin-right: -60px;
+    opacity: 0.5;
+  }
+
+  .fleche-anim {
+    width: 120px;
+    margin-top: 4rem;
+  }
+
+  /* Carte en colonne */
+  .carte {
+    flex-direction: column;
+    margin: 2rem auto;
+    width: 95%;
+    max-width: 500px;
+  }
+
+  .carte img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .carte .contenu {
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .carte h1 {
+    font-size: 30px !important;
+  }
+
+  .identité {
+    font-size: 18px;
+  }
+
+  /* Image frise */
+  .presentation img[src*="frise"] {
+    width: 90% !important;
+    height: auto !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+
+  /* Contact */
+  .contact {
+    margin: 3rem 1rem;
+  }
+
+  .cartes-profils {
+    gap: 2rem;
+  }
+
+  .carte-profil {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+  }
+
+  .nom-site {
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+  .footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  .footer-links li {
+    width: 100%;
+  }
+
+  .footer-links a {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-right p {
+    font-size: 1.1rem;
+  }
+}
+
+/* ================================================
+   MEDIA QUERIES - MOBILE PORTRAIT (< 481px)
+   ================================================ */
+
+@media screen and (max-width: 480px) {
+
+  /* Textes encore plus compacts */
+  .bienvenue {
+    font-size: clamp(28px, 8vw, 40px);
+    margin-top: 2rem;
+  }
+
+  .phrase {
+    font-size: clamp(18px, 5vw, 28px);
+    margin-top: 2rem;
+  }
+
+  /* Formes SVG masquées sur très petits écrans */
+  .formes1,
+  .formes2 {
+    display: none;
+  }
+
+  .fleche-anim {
+    width: 100px;
+    margin-top: 3rem;
+  }
+
+  /* Carte ultra-compacte */
+  .carte {
+    width: 100%;
+    margin: 1.5rem auto;
+  }
+
+  .carte img {
+    max-height: 250px;
+  }
+
+  .carte .contenu {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .carte h1 {
+    font-size: 24px !important;
+  }
+
+  .identité {
+    font-size: 16px;
+  }
+
+  /* Cartes profil plus petites */
+  .carte-profil {
+    width: 100%;
+    max-width: 280px;
+    padding: 1.5rem 1rem;
+  }
+
+  .carte-profil img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nom-site {
+    font-size: 1rem;
+  }
+
+  /* Footer ultra-compact */
+  .footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .footer-right p {
+    font-size: 1rem;
+  }
+
+  /* Navigation encore plus simple */
+  .nav-circl {
+    padding: 0.8rem;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* ================================================
+   OPTIMISATIONS ULTRA-PETITS ÉCRANS (< 360px)
+   ================================================ */
+
+@media screen and (max-width: 360px) {
+
+  .bienvenue {
+    font-size: 24px;
+  }
+
+  .phrase {
+    font-size: 16px;
+  }
+
+  .carte .contenu {
+    font-size: 14px;
+  }
+
+  .identité {
+    font-size: 14px;
+  }
+
+  .carte h1 {
+    font-size: 20px !important;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   AJOUTS : MENU BURGER + FOOTER OPTIMISÉ
+   À ajouter dans style-responsive.css
+   ============================================ */
+
+/* =====================================
+   MENU BURGER - STYLES DE BASE
+   ===================================== */
+
+/* Bouton hamburger (caché sur desktop) */
+.menu-toggle {
+  display: none; /* Caché par défaut sur desktop */
+  background: #195415;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(67, 9, 121, 0.8);
+}
+
+/* Navigation mobile cachée par défaut */
+.nav-links.mobile-hidden {
+  display: none;
+}
+
+/* Navigation mobile ouverte */
+.nav-links.mobile-open {
+  display: flex;
+}
+
+/* ================================================
+   MEDIA QUERIES - MOBILE (< 768px)
+   ================================================ */
+
+@media screen and (max-width: 768px) {
+
+  /* Afficher le bouton burger sur mobile */
+  .menu-toggle {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Navigation cachée par défaut sur mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  /* Navigation ouverte quand la classe est ajoutée */
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  /* Animation douce pour l'ouverture */
+  .nav-links.mobile-open {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Liens navigation mobile */
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* Menu déroulant sur mobile */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+    display: none; /* Caché par défaut */
+  }
+
+  /* Afficher le dropdown au clic sur mobile */
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  /* =====================================
+     FOOTER - CORRECTION LARGEUR BOUTONS
+     ===================================== */
+
+  .footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  /* Container pour centrer les liens sans prendre toute la largeur */
+  .footer-links {
+    flex-direction: row; /* Gardé en ligne, mais centré */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+    max-width: 100%; /* Au lieu de prendre toute la largeur */
+  }
+
+  .footer-links li {
+    width: auto; /* Largeur automatique au lieu de 100% */
+  }
+
+  .footer-links a {
+    display: inline-block; /* Au lieu de block */
+    padding: 8px 16px; /* Padding horizontal pour boutons compacts */
+    font-size: 0.95rem;
+    white-space: nowrap; /* Évite le retour à la ligne dans les boutons */
+  }
+
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-right p {
+    font-size: 1.1rem;
+  }
+}
+
+/* ================================================
+   MOBILE PORTRAIT (< 481px)
+   ================================================ */
+
+@media screen and (max-width: 480px) {
+
+  .menu-toggle {
+    font-size: 22px;
+    padding: 8px 12px;
+  }
+
+  /* Footer avec boutons encore plus compacts */
+  .footer-links {
+    gap: 0.4rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .footer-right p {
+    font-size: 1rem;
+  }
+}
+
+/* ================================================
+   ULTRA-PETITS ÉCRANS (< 360px)
+   ================================================ */
+
+@media screen and (max-width: 360px) {
+
+  .menu-toggle {
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+}
