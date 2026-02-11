@@ -3,12 +3,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Créer le bouton burger s'il n'existe pas
     const nav = document.querySelector('.nav-circl');
     const navLeft = document.querySelector('.nav-left');
+    const navRight = document.querySelector('.nav-right');
     const navLinks = document.querySelector('.nav-links');
 
-    if (!nav || !navLeft || !navLinks) {
+    if (!nav || !navLeft || !navRight || !navLinks) {
         console.error('Navigation elements not found');
         return;
     }
@@ -17,24 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!document.querySelector('.menu-toggle')) {
         const menuToggle = document.createElement('button');
         menuToggle.className = 'menu-toggle';
-        menuToggle.innerHTML = '&#9776;'; // Icone hamburger (☰)
+        menuToggle.innerHTML = '&#9776;';
         menuToggle.setAttribute('aria-label', 'Toggle menu');
 
-        // Insérer le bouton avant nav-left
-        nav.insertBefore(menuToggle, navLeft);
+        // 👉 bouton ajouté DANS .nav-left, après le h3
+        navLeft.insertAdjacentElement('beforeend', menuToggle);
 
-        // Gérer le clic sur le bouton
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('mobile-open');
 
-            // Changer l'icône
-            if (navLinks.classList.contains('mobile-open')) {
-                menuToggle.innerHTML = '&#10005;'; // Icone X (✕)
-            } else {
-                menuToggle.innerHTML = '&#9776;'; // Icone hamburger (☰)
-            }
+            menuToggle.innerHTML = navLinks.classList.contains('mobile-open')
+                ? '&#10005;'
+                : '&#9776;';
         });
     }
+
 
     // Gérer les sous-menus sur mobile
     const dropdowns = document.querySelectorAll('.dropdown');

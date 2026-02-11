@@ -578,17 +578,69 @@ body {
     font-size: 1rem;
   }
 
-  /* Navigation encore plus simple */
-  .nav-circl {
-    padding: 0.8rem;
-  }
 
-  .nav-links a {
-    font-size: 14px;
-    padding: 8px;
-  }
+}
+.nav-circl {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;              /* on enlève le padding qui décale tout */
+  width: 100vw;            /* largeur = largeur de l’écran */
+  box-sizing: border-box;
 }
 
+/* Ligne : nom + bouton */
+.nav-left {
+  display: flex;
+  justify-content: center;   /* centre tout le contenu */
+  align-items: center;
+  gap: 9rem;                 /* espace entre nom et bouton */
+  width: 100%;
+}
+
+.nav-left h3 {
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.menu-toggle {
+  padding: 0;
+  margin: auto;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Le menu en dessous */
+.nav-right {
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;   /* ← C’est ça qui les met à droite */
+  text-align: right;       /* ← Le texte aussi à droite */
+  width: 100%;
+  padding-right: 1rem;     /* optionnel : espace avec le bord */
+}
+
+.nav-links li {
+  width: auto;             /* évite qu’ils prennent toute la largeur */
+}
+
+.nav-links a {
+  display: inline-block;   /* pour que l’alignement fonctionne */
+}
 /* ================================================
    OPTIMISATIONS ULTRA-PETITS ÉCRANS (< 360px)
    ================================================ */
@@ -683,6 +735,7 @@ body {
   /* Navigation ouverte quand la classe est ajoutée */
   .nav-links.mobile-open {
     display: flex;
+    width: 30%;
   }
 
   /* Animation douce pour l'ouverture */
