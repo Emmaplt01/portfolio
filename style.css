@@ -51,13 +51,14 @@ body::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center; /* ✅ Centre verticalement tous les enfants */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   border-radius: 3vw;
   padding: 0.5rem 1.5rem;
   margin: 2vw auto;
   font-family: "Inter", sans-serif;
-  height: auto;
+  min-height: 60px; /* ✅ Hauteur minimale pour un meilleur rendu */
   color: white;
 }
 
@@ -68,9 +69,19 @@ body::before {
   gap: 3vw;
 }
 
+.nav-left h3 {
+  margin: 0; /* ✅ Supprime les marges par défaut du h3 */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center; /* ✅ Centre verticalement le contenu à droite */
+}
+
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center; /* ✅ Centre verticalement les liens */
   gap: 2vw;
   margin: 0;
   padding: 0;
@@ -79,6 +90,8 @@ body::before {
 
 .nav-links li {
   position: relative;
+  display: flex; /* ✅ Permet un meilleur alignement */
+  align-items: center;
 }
 
 .nav-links a {
@@ -88,6 +101,7 @@ body::before {
   background-color: #195415;
   border-radius: 10px;
   font-size: 17px;
+  display: inline-block; /* ✅ Meilleur comportement avec padding */
 }
 
 /* Menu déroulant caché */
@@ -96,7 +110,7 @@ body::before {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: #195415;
   backdrop-filter: blur(12px);
   border-radius: 10px;
   padding: 10px 0;
@@ -262,7 +276,7 @@ body::before {
 }
 
 .carte-profil {
-  width: 18rem;
+  width: 20rem;
   margin: 2rem auto;
   padding: 2rem 1rem;
   display: flex;
@@ -417,7 +431,7 @@ body::before {
   }
 
   .carte-profil {
-    width: 16rem;
+    width: 18rem;
   }
 }
 
@@ -465,9 +479,10 @@ body::before {
   }
 
   .dropdown-menu {
-    position: static;
-    width: 100%;
+    position: static; /* ✅ Supprime le positionnement absolu */
+    width: 100%; /* ✅ Prend toute la largeur */
     margin-top: 0.5rem;
+    left: 0; /* ✅ Aligné à gauche */
   }
 
   .nav-right {
@@ -681,17 +696,17 @@ body::before {
   }
 
 
-    /* Le nav prend toute la largeur, sans marge parasite */
-    .nav-circl {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0;              /* on enlève le padding qui décale tout */
-      width: 100vw;            /* largeur = largeur de l’écran */
-      box-sizing: border-box;
-    }
+  /* Le nav prend toute la largeur, sans marge parasite */
+  .nav-circl {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;              /* on enlève le padding qui décale tout */
+    width: 100vw;            /* largeur = largeur de l’écran */
+    box-sizing: border-box;
+  }
 
-    /* Ligne : nom + bouton */
+  /* Ligne : nom + bouton */
   .nav-left {
     display: flex;
     justify-content: center;   /* centre tout le contenu */
@@ -718,38 +733,38 @@ body::before {
   }
 
 
-    /* Le menu en dessous */
-    .nav-right {
-      width: 100%;
-      padding: 0 1rem;
-      box-sizing: border-box;
-      align-items: flex-end;
-      text-align: right;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;   /* ← C’est ça qui les met à droite */
-      text-align: right;       /* ← Le texte aussi à droite */
-      width: 100%;
-      padding-right: 1rem;     /* optionnel : espace avec le bord */
-    }
-
-    .nav-links li {
-      width: auto;             /* évite qu’ils prennent toute la largeur */
-    }
-
-    .nav-links a {
-      display: inline-block;   /* pour que l’alignement fonctionne */
-    }
+  /* Le menu en dessous */
+  .nav-right {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    align-items: flex-end;
+    text-align: right;
   }
 
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;   /* ← C’est ça qui les met à droite */
+    text-align: right;       /* ← Le texte aussi à droite */
+    width: 100%;
+    padding-right: 1rem;     /* optionnel : espace avec le bord */
+  }
+
+  .nav-links li {
+    width: auto;             /* évite qu’ils prennent toute la largeur */
+  }
+
+  .nav-links a {
+    display: inline-block;   /* pour que l’alignement fonctionne */
+  }
+}
 
 
-  /* ================================================
-     OPTIMISATIONS ULTRA-PETITS ÉCRANS (< 360px)
-     ================================================ */
+
+/* ================================================
+   OPTIMISATIONS ULTRA-PETITS ÉCRANS (< 360px)
+   ================================================ */
 
 @media screen and (max-width: 360px) {
 
@@ -834,7 +849,7 @@ body::before {
     width: 100%;
     text-align: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   /* Navigation ouverte quand la classe est ajoutée */
